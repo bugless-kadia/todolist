@@ -34,5 +34,38 @@ body {
 .task {
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+}
+.task-done {
+  text-decoration: line-through;
+  text-decoration-color: darkgrey;
+  width: 75%;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+  background-color: gray;
+}
+.task-progress {
+  width: 75%;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.fa-solid {
+  margin-right: 35px;
+  margin-left: 15px;
+}
+.fa-check {
+  color: green;
+  font-size: 22px;
+  padding-top: 15px;
+}
+.fa-trash {
+  color: red;
+  font-size: 17px;
+  padding-top: 15px;
+}
+.fa-rotate-left {
+  color: gray;
+  font-size: 19px;
+  padding-top: 15px;
 }
