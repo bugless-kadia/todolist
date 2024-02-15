@@ -30,6 +30,7 @@ body {
   left: 0px;
   top: 52px;
   padding: 0px;
+  transition: 0.5s;
 }
 .task {
   display: flex;
@@ -68,4 +69,8 @@ body {
   color: gray;
   font-size: 19px;
   padding-top: 15px;
+}
+
+.task-tabs div {
+  cursor: pointer;
 }
