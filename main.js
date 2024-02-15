@@ -35,16 +35,14 @@ function addTask() {
 }
 
 function render() {
-  // 1. 내가 선택한 탭에 따라서
+  let resultHTML = '';
   let list = [];
   if (mode === 'all') {
     list = taskList;
   } else if (mode === 'ongoing' || mode === 'done') {
     list = filterList;
   }
-  // 2. 리스트를 달리 보여준다
 
-  let resultHTML = '';
   for (let i = 0; i < list.length; i++) {
     if (list[i].isComplete == true) {
       resultHTML += `<div class="task">
@@ -74,23 +72,23 @@ function toggleComplete(id) {
       break;
     }
   }
-  render();
+  filter();
   console.log(taskList);
 }
 function deleteTask(id) {
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].id == id) {
-      taskList = taskList.filter((id) => id !== taskList[i]);
+      taskList.splice(i, 1);
       break;
     }
   }
-  render();
+  filter();
   console.log(taskList);
 }
 
 function filter(event) {
-  mode = event.target.id;
   if (event) {
+    mode = event.target.id;
     underLine.style.width = event.target.offsetWidth + 'px';
     underLine.style.left = event.target.offsetLeft + 'px';
     underLine.style.top =
@@ -98,30 +96,20 @@ function filter(event) {
   }
 
   filterList = [];
-  if (mode === 'all') {
-    //전체 리스트를 보여준다
-    render();
-  } else if (mode === 'ongoing') {
-    // 진행중인 아이템을 보여준다.
-    // task.isComplete = false
+  if (mode === 'ongoing') {
     for (let i = 0; i < taskList.length; i++) {
       if (taskList[i].isComplete === false) {
         filterList.push(taskList[i]);
       }
     }
-    render();
-    console.log('진행중', filterList);
   } else if (mode === 'done') {
-    // 끝나는 케이스
-    // task.isComplete = true
     for (let i = 0; i < taskList.length; i++) {
       if (taskList[i].isComplete === true) {
         filterList.push(taskList[i]);
       }
     }
-    console.log('끝남', filterList);
-    render();
   }
+  render();
 }
 
 function randomIDGenerate() {

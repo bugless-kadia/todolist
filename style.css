@@ -3,6 +3,7 @@ body {
   background-image: url('images/todo-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -73,4 +74,18 @@ body {
 
 .task-tabs div {
   cursor: pointer;
+}
+#task-input {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  background-color: white;
+  border-color: rgba(126, 166, 182, 0.5);
+  padding-left: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+#add-button {
+  border-radius: 30px;
+  background-color: rgba(165, 187, 190, 0.5);
+  border: none;
 }
